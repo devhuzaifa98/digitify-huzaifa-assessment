@@ -13,6 +13,10 @@ Add the following line to your .env file in the root of your project:
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs all the required dependencies to set up and run the project.
+
 ### `npm start`
 
 Runs the app in the development mode.
