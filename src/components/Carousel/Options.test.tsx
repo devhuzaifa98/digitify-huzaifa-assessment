@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Options } from "./Options";
-import { useCarousel } from "../../Hooks/useCarousel";
+import { useCarousel } from "../../hooks/useCarousel";
 
 jest.mock("../../Hooks/useCarousel");
 
@@ -40,5 +40,22 @@ describe("Options Component", () => {
 
     expect(mockUseCarousel.selectOption).toHaveBeenCalledWith(0);
     expect(mockUseCarousel.nextSlide).toHaveBeenCalled();
+  });
+
+  it("animates correctly", async () => {
+    render(<Options />);
+
+    const optionElement = screen.getByRole("option-1");
+    expect(optionElement).toHaveStyle({
+      opacity: 0,
+      transform: "translateY(100px)",
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    expect(optionElement).toHaveStyle({
+      opacity: 1,
+      transform: "none",
+    });
   });
 });

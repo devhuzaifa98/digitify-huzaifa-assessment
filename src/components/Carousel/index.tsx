@@ -1,5 +1,5 @@
-import { useCarousel } from "../../Hooks/useCarousel";
-import { AnimatePresence, motion } from "framer-motion";
+import { useCarousel } from "../../hooks/useCarousel";
+import { AnimatePresence } from "framer-motion";
 import { SummarySlide } from "./Summary/SummarySlide";
 import { StandardSlides } from "./Slide";
 import { ThankYou } from "../ThankYou";
@@ -11,10 +11,10 @@ export const Carousel = () => {
   return (
     <>
       {/* AnimatePresense breaks for ternary operators. Its a bug so had to render this way */}
+      {!isSummarySlide && !isSubmitted && <StandardSlides />}
       <AnimatePresence>
         {isSummarySlide && !isSubmitted && <SummarySlide />}
       </AnimatePresence>
-      {!isSummarySlide && !isSubmitted && <StandardSlides />}
       {isSubmitted && <ThankYou />}
     </>
   );

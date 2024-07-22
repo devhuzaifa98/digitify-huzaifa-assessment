@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { CarouselContext } from "../Context/Carousel";
-import { Option, Slide } from "../Utils/types";
+import { CarouselContext } from "../context/Carousel";
+import { Option, Slide } from "../utils/types";
 
 const URL = process.env.REACT_APP_FORM_SUBMIT_URL as string;
 
@@ -9,13 +9,14 @@ export const useCarousel = () => {
   const currentSlide = carouselData.slides[carouselData.currentSlide] as Slide;
 
   const nextSlide = () => {
+    if (carouselData.editMode) return jumpToSlide(carouselData.slides.length);
     setCarouselData((prev) => ({
       ...prev,
       currentSlide: prev.currentSlide + 1,
     }));
   };
 
-  const jumpToSlide = (index: number) => {
+  const jumpToSlide = (index: number, editMode = false) => {
     //check if the slide before the targetted slide is selected so we dont skip incompleted slides
     const isAllowed =
       index < carouselData.currentSlide ||
@@ -27,29 +28,23 @@ export const useCarousel = () => {
     setCarouselData((prev) => ({
       ...prev,
       currentSlide: index,
+      editMode: !!editMode,
     }));
   };
 
   const selectOption = (index: number) => {
+    const slides = [...carouselData.slides];
+    slides[carouselData.currentSlide].options[index].isSelected = true;
     setCarouselData((prev) => ({
       ...prev,
-      slides: prev.slides.map((slide, slideIndex) => ({
-        ...slide,
-        options: slide.options.map((option, optionIndex) => ({
-          ...option,
-          isSelected:
-            slideIndex === prev.currentSlide
-              ? index === optionIndex
-              : option.isSelected,
-        })),
-      })),
+      slides: slides,
     }));
   };
 
   const submitForm = async () => {
     const data = carouselData.slides.map((slide: Slide) => ({
-      title: slide.title,
-      value: slide.options.find((option: Option) => option.isSelected)?.label,
+      [slide.key]: slide.options.find((option: Option) => option.isSelected)
+        ?.key,
     }));
 
     const response = await fetch(URL, {

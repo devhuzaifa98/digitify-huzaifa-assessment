@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Carousel } from "./index";
-import { useCarousel } from "../../Hooks/useCarousel";
+import { useCarousel } from "../../hooks/useCarousel";
 
 jest.mock("../../Hooks/useCarousel");
 jest.mock("./Summary/SummarySlide", () => ({

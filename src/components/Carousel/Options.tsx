@@ -1,5 +1,4 @@
-import { AnimatePresence } from "framer-motion";
-import { useCarousel } from "../../Hooks/useCarousel";
+import { useCarousel } from "../../hooks/useCarousel";
 import { motion } from "framer-motion";
 
 export const Options = () => {
@@ -7,11 +6,12 @@ export const Options = () => {
   return (
     <div
       key={currentSlide.title}
-      className="md:w-1/2 flex justify-evenly items-center m-5 md:m-auto flex-wrap md:px-10"
+      className="flex justify-evenly items-center flex-wrap h-1/2 m-5 md:w-1/2 md:m-auto md:px-10 md:h-auto"
     >
       {currentSlide.options.map((option, index) => (
         <motion.div
           initial={{ opacity: 0, y: 100 }}
+          role={`option-${index+1}`}
           animate={{
             opacity: 1,
             y: 0,

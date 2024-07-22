@@ -6,93 +6,58 @@ import NeutralFace from "../assets/neutral-face.svg";
 export const Slides: Slide[] = [
   {
     title: "How are you feeling today?",
+    key: "feeling_today",
     options: [
       {
         label: "Bad",
+        key: "bad",
         icon: ThumbsDown,
       },
       {
         label: "Neutral",
+        key: "neutral",
         icon: NeutralFace,
       },
     ],
   },
   {
     title: "How was your week overall?",
+    key: "week_overview",
     options: [
       {
         label: "Good",
-        icon: ThumbsUp,
-      },
-      {
-        label: "Good",
-        icon: ThumbsUp,
-      },
-      {
-        label: "Good",
-        icon: ThumbsUp,
-      },
-      {
-        label: "Good",
+        key: "good",
         icon: ThumbsUp,
       },
       {
         label: "Bad",
+        key: "bad",
         icon: ThumbsDown,
       },
       {
         label: "Neutral",
+        key: "neutral",
         icon: NeutralFace,
       },
     ],
   },
   {
-    title: "How was your day?",
+    title: "What are your thoughts about this assessment?",
+    key: "assessment_thoughts",
     options: [
       {
         label: "Good",
+        key: "good",
         icon: ThumbsUp,
       },
       {
         label: "Bad",
+        key: "bad",
         icon: ThumbsDown,
       },
       {
         label: "Neutral",
-        icon: NeutralFace,
-      },
-    ],
-  },
-  {
-    title: "How was your month?",
-    options: [
-      {
-        label: "Good",
-        icon: ThumbsUp,
-      },
-      {
-        label: "Bad",
-        icon: ThumbsDown,
-      },
-      {
-        label: "Neutral",
-        icon: NeutralFace,
-      },
-    ],
-  },
-  {
-    title: "How was your year?",
-    options: [
-      {
-        label: "Good",
-        icon: ThumbsUp,
-      },
-      {
-        label: "Bad",
-        icon: ThumbsDown,
-      },
-      {
-        label: "Neutral",
+        key: "neutral",
         icon: NeutralFace,
       },
     ],

@@ -1,8 +1,8 @@
-import { Carousel } from "./Components/Carousel";
+import { Carousel } from "./components/Carousel";
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="h-screen">
       <Carousel />
     </div>
   );
