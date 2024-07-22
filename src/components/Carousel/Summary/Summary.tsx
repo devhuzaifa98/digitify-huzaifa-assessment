@@ -29,7 +29,7 @@ export const Summary = () => {
                 <span>{index + 1}.</span>
                 <h1>{slide.title}</h1>
               </div>
-              <div className="flex space-x-2 justify-end items-start">
+              <div className="flex space-x-2 justify-end items-center">
                 <button
                   className="text-sm text-primary md:opacity-0 md:translate-x-1/3 md:transition-all md:duration-300 md:group-hover:opacity-100 md:group-hover:translate-x-0"
                   onClick={() => jumpToSlide(index, true)}

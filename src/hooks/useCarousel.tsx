@@ -34,7 +34,13 @@ export const useCarousel = () => {
 
   const selectOption = (index: number) => {
     const slides = [...carouselData.slides];
-    slides[carouselData.currentSlide].options[index].isSelected = true;
+    slides[carouselData.currentSlide].options.forEach(
+      (option: any, optionIndex: number) =>
+        optionIndex === index
+          ? (option.isSelected = true)
+          : (option.isSelected = false)
+    );
+    
     setCarouselData((prev) => ({
       ...prev,
       slides: slides,
