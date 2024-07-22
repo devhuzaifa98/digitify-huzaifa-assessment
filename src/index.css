@@ -2,33 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.option p {
-  opacity: 0;
-  transform: translateY(-20%);
-  transition: all 0.3s;
-}
-
-.option:hover > p {
-  opacity: 1;
-  transform: translateY(0%);
-}
-
-.summary-list-change-btn {
-  opacity: 0;
-  transform: translateX(20%);
-  transition: all 0.3s;
-}
-
-.summary-list-item:hover .summary-list-change-btn {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-/* Mobile styles */
-@media (max-width: 640px) {
-  .option p,
-  .summary-list-change-btn {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
